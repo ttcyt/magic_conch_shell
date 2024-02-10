@@ -2,7 +2,7 @@ import 'dart:math';
 
 class Controller {
   Random random = Random();
-  String answer = '你為什麼不問問神奇海螺呢?';
+  String answer = '你為什麼不問問\n  神奇海螺呢?';
   String image = 'ask_the_magic_conch.jpg';
   int randomCase = 0;
 
