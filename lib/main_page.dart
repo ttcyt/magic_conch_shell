@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'controller.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -11,13 +12,14 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   Controller controller = Controller();
   late final AnimationController _controller;
-  // bool init = true;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this);
+    _controller = AnimationController(
+        vsync: this, duration: const Duration(seconds: 1), upperBound: 0.4);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,6 +81,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                 ElevatedButton.icon(
                   onPressed: () {
                     _controller.reset();
+                    _controller.duration = const Duration(seconds: 1);
                     _controller.forward().then((value) {
                       controller.getAnswer();
                       setState(() {});
